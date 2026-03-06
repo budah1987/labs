@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Build
+dist/
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Claude / editor
+.claude/
+.cursor/
+*.jsonl
+.mcp.json
+.scappa/
+
+# Vercel
+.vercel/
+
+# Images source folder (large files, not needed in repo)
+Images & Artifacts/
