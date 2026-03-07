@@ -29,3 +29,4 @@ Thumbs.db
 
 # Images source folder (large files, not needed in repo)
 Images & Artifacts/
+.vercel
