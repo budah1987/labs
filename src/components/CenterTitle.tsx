@@ -19,6 +19,8 @@ interface CenterTitleProps {
   isExpanded: boolean;
   onExpand: () => void;
   onCollapse: () => void;
+  onNext?: () => void;
+  onPrev?: () => void;
 }
 
 export function CenterTitle({
@@ -26,6 +28,8 @@ export function CenterTitle({
   isExpanded,
   onExpand,
   onCollapse,
+  onNext,
+  onPrev,
 }: CenterTitleProps) {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const titleText = project ? project.title.toUpperCase() : DEFAULT_TITLE;
@@ -319,6 +323,18 @@ export function CenterTitle({
                   y: -16,
                   scale: 0.97,
                   transition: { duration: 0.25, ease },
+                }}
+                drag={isMobile && !isExpanded ? "x" : false}
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.3}
+                onDragEnd={(_e, info) => {
+                  if (!isMobile || isExpanded) return;
+                  const swipedLeft =
+                    info.offset.x < -50 || info.velocity.x < -300;
+                  const swipedRight =
+                    info.offset.x > 50 || info.velocity.x > 300;
+                  if (swipedLeft) onNext?.();
+                  else if (swipedRight) onPrev?.();
                 }}
                 style={{
                   marginTop: isMobile ? 24 : 24,

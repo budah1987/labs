@@ -47,14 +47,31 @@ export default function Home() {
           collapse();
         }
       } else {
-        // Click selects AND expands in one step
-        setSelectedId(id);
-        setIsExpanded(true);
-        window.history.pushState(null, "", `#${id}`);
+        if (selectedId === id) {
+          // Tap same thumbnail → deselect
+          setSelectedId(null);
+          setHoveredId(null);
+        } else {
+          setSelectedId(id);
+          if (!isMobile) {
+            setIsExpanded(true);
+            window.history.pushState(null, "", `#${id}`);
+          }
+        }
       }
     },
-    [isExpanded, selectedId]
+    [isExpanded, selectedId, isMobile]
   );
+
+  const handleNext = useCallback(() => {
+    const idx = projects.findIndex((p) => p.id === selectedId);
+    if (idx < projects.length - 1) setSelectedId(projects[idx + 1].id);
+  }, [selectedId]);
+
+  const handlePrev = useCallback(() => {
+    const idx = projects.findIndex((p) => p.id === selectedId);
+    if (idx > 0) setSelectedId(projects[idx - 1].id);
+  }, [selectedId]);
 
   const expand = useCallback(() => {
     if (selectedId) {
@@ -138,6 +155,8 @@ export default function Home() {
           isExpanded={isExpanded}
           onExpand={expand}
           onCollapse={collapse}
+          onNext={handleNext}
+          onPrev={handlePrev}
         />
       </main>
 
