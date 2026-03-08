@@ -76,7 +76,7 @@ export function CenterTitle({
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
-            padding: isMobile ? "0 20px" : "0 var(--lab-px)",
+            padding: isMobile ? "60px 20px 0" : "0 var(--lab-px)",
             maxWidth: isMobile ? undefined : 1440,
             marginLeft: "auto",
             marginRight: "auto",
@@ -145,8 +145,8 @@ export function CenterTitle({
             transition={{ duration: 0.4, ease, delay: 0.25 }}
             style={{
               display: "flex",
-              gap: isMobile ? 16 : 24,
-              marginBottom: isMobile ? 20 : 28,
+              gap: isMobile ? 20 : 24,
+              marginBottom: isMobile ? 28 : 28,
             }}
           >
             {project.content?.year && (
@@ -321,7 +321,7 @@ export function CenterTitle({
                   transition: { duration: 0.25, ease },
                 }}
                 style={{
-                  marginTop: isMobile ? 16 : 24,
+                  marginTop: isMobile ? 24 : 24,
                   width: isMobile
                     ? "min(100%, calc(100vw - 40px))"
                     : "min(480px, 68vw)",

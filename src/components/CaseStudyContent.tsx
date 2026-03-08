@@ -54,10 +54,10 @@ export function CaseStudyContent({ sections }: CaseStudyContentProps) {
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: isMobile ? 40 : 64,
+        gap: isMobile ? 80 : 64,
         width: "100%",
-        paddingTop: isMobile ? 24 : 40,
-        paddingBottom: isMobile ? 60 : 80,
+        paddingTop: isMobile ? 40 : 40,
+        paddingBottom: isMobile ? 80 : 80,
       }}
     >
       {sections.map((section, i) => (
@@ -122,7 +122,7 @@ function SectionHeader({
           letterSpacing: "-0.02em",
           color: "var(--lab-text)",
           textTransform: "uppercase",
-          marginBottom: isMobile ? 12 : 16,
+          marginBottom: isMobile ? 24 : 16,
         }}
       >
         {header}
@@ -135,7 +135,7 @@ function SectionHeader({
             fontSize: isMobile ? 14 : 16,
             color: "var(--lab-text-secondary)",
             lineHeight: 1.4,
-            marginBottom: 12,
+            marginBottom: isMobile ? 20 : 12,
             textTransform: "uppercase",
             letterSpacing: "0.02em",
           }}
@@ -160,7 +160,7 @@ function BodyText({
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: isMobile ? 12 : 16,
+        gap: isMobile ? 20 : 16,
       }}
     >
       {paragraphs.map((p, i) => {
@@ -171,8 +171,8 @@ function BodyText({
             key={i}
             style={{
               fontFamily: "var(--font-inter), sans-serif",
-              fontSize: isMobile ? 14 : 16,
-              lineHeight: 1.6,
+              fontSize: isMobile ? 15 : 16,
+              lineHeight: isMobile ? 1.75 : 1.6,
               color: isQuote
                 ? "var(--lab-text)"
                 : "var(--lab-text-secondary)",
@@ -246,7 +246,7 @@ function TextImageSection({
           display: isMobile ? "flex" : "grid",
           gridTemplateColumns: isMobile ? undefined : "45fr 55fr",
           flexDirection: isMobile ? "column" : undefined,
-          gap: isMobile ? 20 : 28,
+          gap: isMobile ? 32 : 28,
         }}
       >
         <BodyText body={section.body} isMobile={isMobile} />
@@ -406,7 +406,7 @@ function TwoColumnSection({
           display: isMobile ? "flex" : "grid",
           gridTemplateColumns: isMobile ? undefined : "1fr 1fr",
           flexDirection: isMobile ? "column" : undefined,
-          gap: isMobile ? 24 : 32,
+          gap: isMobile ? 36 : 32,
         }}
       >
         <BodyText body={col1 || ""} isMobile={isMobile} />
@@ -429,7 +429,7 @@ function QuoteSection({
       style={{
         borderLeft: "3px solid var(--lab-accent)",
         background: "var(--lab-bg-glass)",
-        padding: isMobile ? "20px 24px" : "28px 36px",
+        padding: isMobile ? "28px 24px" : "28px 36px",
         borderRadius: "0 var(--lab-radius-xs) var(--lab-radius-xs) 0",
       }}
     >
@@ -460,7 +460,7 @@ function CtaSection({
     <div
       style={{
         textAlign: "center",
-        padding: isMobile ? "32px 0" : "48px 0",
+        padding: isMobile ? "48px 0" : "48px 0",
       }}
     >
       {section.body && (
@@ -518,7 +518,7 @@ function CardGridSection({
         style={{
           display: "grid",
           gridTemplateColumns: isMobile ? "1fr" : `repeat(${cols}, 1fr)`,
-          gap: isMobile ? 16 : 20,
+          gap: isMobile ? 24 : 20,
         }}
       >
         {section.cards?.map((card, i) => (
@@ -549,7 +549,7 @@ function GridCard({
         background: "var(--lab-bg-glass)",
         border: "1px solid var(--lab-border)",
         borderRadius: "var(--lab-radius-sm)",
-        padding: isMobile ? 20 : 24,
+        padding: 24,
         cursor: hasHover ? "pointer" : "default",
         overflow: "hidden",
         minHeight: isMobile ? undefined : 200,
@@ -669,7 +669,7 @@ function HoverListSection({
                 style={{
                   fontFamily: "var(--font-cabinet), sans-serif",
                   fontWeight: 700,
-                  fontSize: isMobile ? 20 : 28,
+                  fontSize: isMobile ? 24 : 28,
                   lineHeight: 1.2,
                   color:
                     expandedIndex === i
@@ -709,7 +709,7 @@ function HoverListSection({
                     <p
                       style={{
                         fontFamily: "var(--font-inter), sans-serif",
-                        fontSize: isMobile ? 13 : 15,
+                        fontSize: isMobile ? 14 : 15,
                         lineHeight: 1.55,
                         color: "var(--lab-text-secondary)",
                         marginBottom: 20,
