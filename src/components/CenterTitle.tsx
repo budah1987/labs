@@ -114,7 +114,7 @@ export function CenterTitle({
               (e.currentTarget.style.color = "var(--lab-text-secondary)")
             }
           >
-            <span style={{ fontSize: isMobile ? 18 : 22, lineHeight: 1 }}>←</span> Back
+            <span style={{ fontSize: isMobile ? 18 : 22, lineHeight: 1 }}>‹</span> Back
           </motion.button>
 
           {/* Title — left-aligned, smaller */}
